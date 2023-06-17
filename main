@@ -1,0 +1,17 @@
+# Repository: SecureCrypt
+
+import cryptography
+
+# Generate a random encryption key
+key = cryptography.fernet.Fernet.generate_key()
+
+# Encrypt a message
+cipher = cryptography.fernet.Fernet(key)
+message = "This is a secret message".encode()
+encrypted_message = cipher.encrypt(message)
+
+print(f"Encrypted message: {encrypted_message}")
+
+# Decrypt the message
+decrypted_message = cipher.decrypt(encrypted_message)
+print(f"Decrypted message: {decrypted_message.decode()}")
